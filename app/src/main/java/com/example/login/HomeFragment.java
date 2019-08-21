@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment {
 
         /** Here we must get the posts from  database and put it in the Array list **/
         posts.clear();  // to avoid duplicate
+
         posts.add(new Post(R.drawable.samar,"Samar Abdo","1 hr ago" ,"OPP chapter 1","this 's a mol5s for Dr / Ahmed Taha , this subject_sp name is oop and oop is important for us , the programmers ! Object-oriented programming (OOP) is a programming language model in which programs are organized around data, or objects" , 123 , R.drawable.post1_img , 421 ));
         posts.add(new Post(R.drawable.omnia,"Omnia Alwy","yesterday 30/07/2019" ,"Android summer training","this 's a mol5s for M / M7md Ibrhm , this subject_sp name is android and the android is important for us , the programmers ! " , 421 , R.drawable.post2_img , 1238 ));
         posts.add(new Post(R.drawable.samy,"Ahmed Samy","25/07/2019" ,"Web summer training","this 's a mol5s for M / Ahmed Yousry , this subject_sp name is web development and the web is important for all of us , the programmers ! it's ynksm to 2 parts frontend and backend" , 2 , R.drawable.post3_img ,713 ));

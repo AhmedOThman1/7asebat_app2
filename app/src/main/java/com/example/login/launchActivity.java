@@ -59,28 +59,29 @@ public class launchActivity extends AppCompatActivity {
 
         FirstTime= sharedPreferences.getInt(ID,0);
 
-        if(FirstTime==1||FirstTime==2||FirstTime==3)
+        if(FirstTime != 0)
         {
+
+
+
+            SharedPreferences sharedPreferences= getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
+            SP_F_NAME = sharedPreferences.getString(fir_name ,"") ;
+            SP_L_NAME = sharedPreferences.getString(sec_name ,"") ;
+            SP_UNIVERSITY = sharedPreferences.getString(univ ,"") ;
+            SP_LEVEL = sharedPreferences.getString(lev ,"") ;
+            SP_TERM = sharedPreferences.getString(TERM ,"") ;
+            SP_ACCOUNT = sharedPreferences.getString(ACCOUNT ,"") ;
+            SP_PROFILE_IMAGE = sharedPreferences.getString(prof_img, encodeImage(icon));
+            SP_UNIVERSITY_POS = sharedPreferences.getInt(univ_pos,0);
+            SP_LEVEL_POS = sharedPreferences.getInt(lev_pos,0);
+            SP_TERM_POS =sharedPreferences.getInt(TERM_pos,0);
+
+
+            Toast.makeText(launchActivity.this, "Welcome " + SP_F_NAME + " " +  SP_L_NAME, Toast.LENGTH_LONG).show();
+
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
-
-
-                    SharedPreferences sharedPreferences= getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
-                    SP_F_NAME = sharedPreferences.getString(fir_name ,"") ;
-                    SP_L_NAME = sharedPreferences.getString(sec_name ,"") ;
-                    SP_UNIVERSITY = sharedPreferences.getString(univ ,"") ;
-                    SP_LEVEL = sharedPreferences.getString(lev ,"") ;
-                    SP_TERM = sharedPreferences.getString(TERM ,"") ;
-                    SP_ACCOUNT = sharedPreferences.getString(ACCOUNT ,"") ;
-                    SP_PROFILE_IMAGE = sharedPreferences.getString(prof_img, encodeImage(icon));
-                    SP_UNIVERSITY_POS = sharedPreferences.getInt(univ_pos,0);
-                    SP_LEVEL_POS = sharedPreferences.getInt(lev_pos,0);
-                    SP_TERM_POS =sharedPreferences.getInt(TERM_pos,0);
-
-
-                    Toast.makeText(launchActivity.this, "Welcome " + SP_F_NAME + " " +  SP_L_NAME, Toast.LENGTH_LONG).show();
 
                     Intent homeIntent = new Intent(launchActivity.this, Home.class);
                     startActivity(homeIntent);
@@ -89,6 +90,7 @@ public class launchActivity extends AppCompatActivity {
                 }
             },time_out);
         }
+
         else
         {
             new Handler().postDelayed(new Runnable() {

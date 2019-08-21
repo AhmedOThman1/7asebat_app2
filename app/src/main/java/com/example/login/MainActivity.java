@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
 
-
+        mAuth = FirebaseAuth.getInstance();
         googleApiClient=new GoogleApiClient.Builder(this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();

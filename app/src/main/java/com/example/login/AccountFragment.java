@@ -54,8 +54,7 @@ public class AccountFragment extends Fragment {
     /**
      * initialization
      **/
-
-    String[] university_strings = {"University", "Benha", "cairo", "Ain Shams", "El-Fayom", "Asiwat", "Mansoura", "Manofya", "El-Mania", "El-swais", "Helwan", "El-zagazig", "Bani_Swaif"};
+    String[] university_strings = {"University", "Benha", "Cairo", "Ain-Shams", "Assiut", "Mansoura", "Zagazig", "Helwan", "Minia", "Menoufia", "Suez", "Faiyum", "Bani_Swaif"};
     String[] year_strings = {"level", "1st year", "2nd year", "3th year", "4th year", "Others"};
     String[] term_strings = {"term", "first term", "second term"};
     Spinner university_sp, level_sp, term_sp;

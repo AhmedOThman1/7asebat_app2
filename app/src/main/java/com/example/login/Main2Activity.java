@@ -50,8 +50,8 @@ import static com.example.login.launchActivity.univ_pos;
 
 
 public class Main2Activity extends AppCompatActivity {
-    String[] uni = {"University","Benha", "cairo", "Ain Shams", "El-Fayom", "Asiwat", "Mansoura", "Manofya", "El-Mania", "El-swais", "Helwan", "El-zagazig", "Bani_Swaif"};
-    String[] le = {"level","1st year", "2nd year", "3th year", "4th year", "Other"};
+    String[] university_strings = {"University", "Benha", "Cairo", "Ain-Shams", "Assiut", "Mansoura", "Zagazig", "Helwan", "Minia", "Menoufia", "Suez", "Faiyum", "Bani_Swaif"};
+    String[] level_strings = {"level","1st year", "2nd year", "3th year", "4th year", "Other"};
     String[] term_arr = {"term","first term", "second term"};
 
     DatabaseReference databaseReference;
@@ -59,7 +59,6 @@ public class Main2Activity extends AppCompatActivity {
     String university, year, term_val;
     EditText user;
     EditText second;
-
     Spinner university_sp, level_sp, term_sp;
     CircleImageView upload_profile_img;
     Uri uriProfileImage;
@@ -100,7 +99,7 @@ public class Main2Activity extends AppCompatActivity {
 
         university_sp = (Spinner) findViewById(R.id.uni);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, uni) {
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, university_strings) {
             @Override
             public boolean isEnabled(int i) {
                 if (i == 0) {
@@ -118,7 +117,7 @@ public class Main2Activity extends AppCompatActivity {
         level_sp = (Spinner) findViewById(R.id.level);
 
 
-        ArrayAdapter adapter2 = new ArrayAdapter(this, android.R.layout.simple_list_item_1, le) {
+        ArrayAdapter adapter2 = new ArrayAdapter(this, android.R.layout.simple_list_item_1, level_strings) {
 
             @Override
             public boolean isEnabled(int i) {

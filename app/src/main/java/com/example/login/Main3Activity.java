@@ -129,7 +129,6 @@ public class Main3Activity extends AppCompatActivity {
                 // progressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Done sign-up", Toast.LENGTH_LONG).show();
-
                     SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
                     SharedPreferences.Editor editor=sharedPreferences.edit();
                     editor.putString(ACCOUNT,email);

@@ -1,6 +1,7 @@
 package com.example.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -19,6 +20,8 @@ import com.google.android.material.navigation.NavigationView;
 
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 
+import static com.example.login.launchActivity.SHARED_PREF;
+
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -30,7 +33,7 @@ public class Home extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
-
+final int post_first_time;
 
 
         /**
@@ -66,32 +69,35 @@ public class Home extends AppCompatActivity
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
-        /** this is the help view that tell the user what this view do ? **/
-        new MaterialTapTargetPrompt.Builder(Home.this)
-                .setTarget(R.id.fab)
-                .setPrimaryText("Create your first post !")
-                .setSecondaryText("Tap the envelope to start creating your first post")
-                .setPromptStateChangeListener(new MaterialTapTargetPrompt.PromptStateChangeListener()
-                {
-                    @Override
-                    public void onPromptStateChanged(MaterialTapTargetPrompt prompt, int state)
-                    {
-                        if (state == MaterialTapTargetPrompt.STATE_FOCAL_PRESSED)
-                        {
-                            Toast.makeText(Home.this, "he click here !", Toast.LENGTH_SHORT).show();
-                            /** Here we must add that this help view should appear the first time only if he click here this help view won't appear again **/
-
+        final SharedPreferences shared = getSharedPreferences(SHARED_PREF,0);
+        post_first_time=shared.getInt("post_first_time",0);
+        if(post_first_time==0)
+        /** this is the help view that tell the user what this view do ? **/ {
+            new MaterialTapTargetPrompt.Builder(Home.this)
+                    .setTarget(R.id.fab)
+                    .setPrimaryText("Create your first post !")
+                    .setSecondaryText("Tap the envelope to start creating your first post")
+                    .setPromptStateChangeListener(new MaterialTapTargetPrompt.PromptStateChangeListener() {
+                        @Override
+                        public void onPromptStateChanged(MaterialTapTargetPrompt prompt, int state) {
+                            if (state == MaterialTapTargetPrompt.STATE_FOCAL_PRESSED) {
+                                Toast.makeText(Home.this, "he click here !", Toast.LENGTH_SHORT).show();
+                                /** Here we must add that this help view should appear the first time only if he click here this help view won't appear again **/
+                                SharedPreferences.Editor editor=shared.edit();
+                                editor.putInt("post_first_time",1);
+                                editor.apply();
+                            }
                         }
-                    }
-                })
-                .show();
+                    })
+                    .show();
+        }
         /*
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("matrial");
+        myRef = database.getReference("material");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                matrial post_subject = dataSnapshot.getValue(matrial.class);
+                material post_subject = dataSnapshot.getValue(material.class);
                 //  Toast.makeText(Home.this, post_subject.title+" "+post_subject.description, Toast.LENGTH_SHORT).show();
                 Log.v("ammm"," value is : " + post_subject.title);
             }
