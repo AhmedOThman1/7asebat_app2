@@ -299,7 +299,7 @@ public class Create_Post extends AppCompatActivity {
         post_title = title.getText().toString();
         post_description = description.getText().toString();
 
-        StorageReference reference = storageReference.child("materials/"+SP_ACCOUNT+" "+System.currentTimeMillis()+".pdf");
+        StorageReference reference = storageReference.child("materials/"+SP_ACCOUNT+System.currentTimeMillis()+".pdf");
         reference.putFile(Data).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
