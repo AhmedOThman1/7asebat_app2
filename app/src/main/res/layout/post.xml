@@ -2,7 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_login"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    >
 
 
     <RelativeLayout
@@ -103,8 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/post_images"
             android:background="@android:color/transparent"
-            android:paddingTop="@dimen/margin_dp"
-            android:paddingBottom="@dimen/margin_dp"
+
             >
 
             <LinearLayout
@@ -112,7 +115,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:gravity="center"
+                android:paddingTop="@dimen/margin_dp"
+                android:paddingBottom="@dimen/margin_dp">
 
                 <TextView
                     android:id="@+id/number_of_ratting_post"
@@ -128,7 +133,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:gravity="center"
+                android:paddingTop="@dimen/margin_dp"
+                android:paddingBottom="@dimen/margin_dp"
+                >
 
                 <TextView
                     android:id="@+id/number_of_favorite_post"
@@ -144,7 +152,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:gravity="center"
+                android:paddingTop="@dimen/margin_dp"
+                android:paddingBottom="@dimen/margin_dp"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -159,12 +170,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:gravity="center"
+                android:paddingTop="@dimen/margin_dp"
+                android:paddingBottom="@dimen/margin_dp"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_menu_share"
+                    android:drawableLeft="@drawable/share"
                     android:text=" share"
                     android:textColor="#000" />
             </LinearLayout>

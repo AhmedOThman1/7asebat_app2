@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.chrisbanes.photoview.PhotoView;
-import com.hsalf.smilerating.BaseRating;
 import com.hsalf.smilerating.SmileRating;
 import com.like.IconType;
 import com.like.LikeButton;
@@ -267,7 +266,7 @@ public class PostAdapter extends ArrayAdapter<Post> {
         View smileView = activity.getLayoutInflater().inflate(R.layout.smiley_rating, null);
 
         SmileRating smileRating = smileView.findViewById(R.id.smile_rating);
-        smileRating.setSelectedSmile(BaseRating.OKAY);
+        smileRating.setSelectedSmile(post.getLevel_of_ratting_post());
         smileRating.setOnRatingSelectedListener(new SmileRating.OnRatingSelectedListener() {
             @Override
             public void onRatingSelected(int level, boolean reselected) {
@@ -283,6 +282,8 @@ public class PostAdapter extends ArrayAdapter<Post> {
 
                 vLikeButton.setVisibility(post.getLikeVisibility());
                 vLikeButton.setLiked(true);
+
+                post.setLevel_of_ratting_post(level-1);
 
 /*
                 vNumber_of_favorite_post.setCompoundDrawablesWithIntrinsicBounds(post.getLikeMode() == 1 ? R.drawable.love24 : R.drawable.nolove, 0, 0, 0);

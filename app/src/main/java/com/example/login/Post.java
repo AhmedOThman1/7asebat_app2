@@ -11,6 +11,7 @@ public class Post {
     private String mPost_header ;
     private String mPost_description;
     private  int mNumber_of_ratting_post ;
+    private  int level_of_ratting_post = 2;
     private int mNumber_of_favorite_post;
     private int mPost_img ;
     private int LikeVisibility = View.GONE;
@@ -49,6 +50,14 @@ public class Post {
 
     public void setDownloadVisibility(int downloadVisibility) {
         DownloadVisibility = downloadVisibility;
+    }
+
+    public int getLevel_of_ratting_post() {
+        return level_of_ratting_post;
+    }
+
+    public void setLevel_of_ratting_post(int level_of_ratting_post) {
+        this.level_of_ratting_post = level_of_ratting_post;
     }
 
     public int getDownloadVisibility() {
